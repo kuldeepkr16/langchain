@@ -51,7 +51,7 @@ class VectorStoreIndexWrapper(BaseModel):
 class VectorstoreIndexCreator(BaseModel):
     """Logic for creating indexes."""
 
-    vectorstore_cls: Type[VectorStore] = Chroma
+    vectorstore_cls: Type[VectorStore] = FAISS
     embedding: Embeddings = Field(default_factory=OpenAIEmbeddings)
     text_splitter: TextSplitter = Field(default_factory=_get_default_text_splitter)
     vectorstore_kwargs: dict = Field(default_factory=dict)
